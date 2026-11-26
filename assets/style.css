@@ -1,0 +1,798 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+
+
+:root {
+    --primary: #10b981;
+    --primary-dark: #047857;
+    --accent-gold: #d97706;
+    --bg-base: #f4f7f5;
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(16, 185, 129, 0.18);
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --shadow-soft: 0 8px 30px rgba(15, 23, 42, 0.06);
+    --shadow-hover: 0 14px 36px rgba(16, 185, 129, 0.16);
+}
+
+/* Font chữ toàn cục */
+html, body, [class*="css"] {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    color: var(--text-main);
+}
+
+/* Nền Mesh Gradient chuyển động nhẹ kiểu Vibe Coding */
+.stApp {
+    background-color: var(--bg-base);
+    background-image:
+        radial-gradient(at 10% 10%, rgba(16, 185, 129, 0.14) 0px, transparent 50%),
+        radial-gradient(at 90% 15%, rgba(245, 158, 11, 0.12) 0px, transparent 45%),
+        radial-gradient(at 50% 95%, rgba(6, 95, 70, 0.10) 0px, transparent 55%);
+    background-attachment: fixed;
+}
+
+/* Thanh Sidebar kính mờ */
+section[data-testid="stSidebar"] {
+    background: rgba(255, 255, 255, 0.78) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border-right: 1px solid var(--glass-border) !important;
+}
+
+/* Thẻ Brand Header tùy chỉnh */
+.codo-brand-card {
+    background: linear-gradient(135deg, #064e3b 0%, #047857 60%, #0d9488 100%);
+    color: #ffffff;
+    padding: 18px 16px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(6, 78, 59, 0.25);
+    margin-bottom: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.codo-brand-card::after {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.35), transparent 70%);
+    border-radius: 50%;
+}
+
+.codo-brand-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.codo-brand-title i {
+    color: #fbbf24;
+}
+
+.codo-brand-sub {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+/* Hero Banner đầu trang */
+.codo-hero {
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.codo-hero h1 {
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+    background: linear-gradient(90deg, #064e3b, #059669, #d97706);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.codo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.12);
+    color: #047857;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+/* Nút bấm hiệu ứng Glow & Nổi khối */
+.stButton > button, .stFormSubmitButton > button {
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    border: 1px solid rgba(16, 185, 129, 0.22) !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    color: var(--text-main) !important;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+}
+
+.stButton > button:hover, .stFormSubmitButton > button:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+.stButton > button[kind="primary"], .stFormSubmitButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.32) !important;
+}
+
+.stButton > button[kind="primary"]:hover, .stFormSubmitButton > button[kind="primary"]:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 10px 24px rgba(16, 185, 129, 0.45) !important;
+}
+
+/* Thẻ Metric & Form kính mờ */
+[data-testid="stMetric"], [data-testid="stForm"], [data-testid="stExpander"] {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 16px !important;
+    padding: 14px 16px !important;
+    box-shadow: var(--shadow-soft) !important;
+}
+
+/* Bong bóng chat có hiệu ứng trượt lên mượt mà */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+[data-testid="stChatMessage"] {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(15, 23, 42, 0.06) !important;
+    border-radius: 16px !important;
+    padding: 14px 18px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+    animation: fadeSlideUp 0.35s ease-out forwards;
+}
+
+/* Bảng dữ liệu bo góc */
+[data-testid="stDataFrame"] {
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--shadow-soft) !important;
+}
+
+/* Ẩn viền thừa thanh cuộn */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.35);
+    border-radius: 999px;
+}
+
+/* === LANDING SCREEN (KHI CHƯA ĐĂNG NHẬP) === */
+.welcome-hero {
+    background: linear-gradient(135deg, rgba(6, 78, 59, 0.92) 0%, rgba(4, 120, 87, 0.88) 60%, rgba(13, 148, 136, 0.85) 100%);
+    color: #ffffff;
+    border-radius: 22px;
+    padding: 32px 34px;
+    margin-bottom: 22px;
+    box-shadow: 0 16px 40px rgba(6, 78, 59, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-hero::after {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent 70%);
+    border-radius: 50%;
+}
+
+.welcome-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.welcome-pill i {
+    color: #fbbf24;
+}
+
+.welcome-hero h2 {
+    font-size: 1.85rem !important;
+    font-weight: 800 !important;
+    margin: 0 0 10px 0 !important;
+    color: #ffffff !important;
+    line-height: 1.25;
+}
+
+.welcome-hero p {
+    font-size: 0.96rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 680px;
+    line-height: 1.6;
+    margin: 0 0 18px 0;
+}
+
+.welcome-cta-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #065f46;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Lưới 4 thẻ tính năng */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(16, 185, 129, 0.18);
+    border-radius: 18px;
+    padding: 20px 22px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: #10b981;
+    box-shadow: 0 14px 32px rgba(16, 185, 129, 0.15);
+}
+
+.feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(245, 158, 11, 0.15));
+    color: #047857;
+}
+
+.feature-card h4 {
+    margin: 0 0 6px 0;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.feature-card p {
+    margin: 0;
+    font-size: 0.86rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* Thanh chỉ số nổi bật */
+.stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(16, 185, 129, 0.18);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #047857;
+}
+
+.stat-item span {
+    font-size: 0.78rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 2. Khung Form kính mờ gọn gàng hơn */
+section[data-testid="stSidebar"] [data-testid="stForm"] {
+    background: rgba(255, 255, 255, 0.82) !important;
+    border: 1px solid rgba(16, 185, 129, 0.18) !important;
+    border-radius: 18px !important;
+    padding: 18px 16px 16px 16px !important;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Nhãn (Label) ô nhập liệu */
+section[data-testid="stSidebar"] [data-testid="stWidgetLabel"] p {
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    margin-bottom: 4px !important;
+}
+
+/* 3. Ô nhập liệu (Input) mềm mại, có hiệu ứng Focus Glow */
+section[data-testid="stSidebar"] [data-baseweb="input"],
+section[data-testid="stSidebar"] [data-baseweb="base-input"] {
+    background: #ffffff !important;
+    border: 1.5px solid rgba(148, 163, 184, 0.35) !important;
+    border-radius: 12px !important;
+    transition: all 0.22s ease !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="input"]:hover {
+    border-color: rgba(16, 185, 129, 0.55) !important;
+}
+
+section[data-testid="stSidebar"] [data-baseweb="input"]:focus-within {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 3.5px rgba(16, 185, 129, 0.16) !important;
+}
+
+section[data-testid="stSidebar"] input {
+    background: transparent !important;
+    color: #0f172a !important;
+    font-size: 0.9rem !important;
+    padding: 10px 12px !important;
+}
+
+/* 4. Fix nút Submit Primary trong Form (Streamlit 1.40+) */
+section[data-testid="stSidebar"] button[kind="primaryFormSubmit"],
+section[data-testid="stSidebar"] button[data-testid="stBaseButton-primaryFormSubmit"],
+section[data-testid="stSidebar"] .stFormSubmitButton > button {
+    margin-top: 6px !important;
+    padding: 10px 16px !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em !important;
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3) !important;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+section[data-testid="stSidebar"] button[kind="primaryFormSubmit"]:hover,
+section[data-testid="stSidebar"] button[data-testid="stBaseButton-primaryFormSubmit"]:hover,
+section[data-testid="stSidebar"] .stFormSubmitButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 22px rgba(16, 185, 129, 0.42) !important;
+    filter: brightness(1.04);
+}
+
+/* === FIX CỨNG TAB ĐĂNG NHẬP / ĐĂNG KÝ (OVERRIDE TUYỆT ĐỐI STREAMLIT) === */
+div[data-baseweb="tab-list"] {
+    display: flex !important;
+    gap: 6px !important;
+    background: rgba(15, 23, 42, 0.06) !important;
+    padding: 5px !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(16, 185, 129, 0.16) !important;
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Xóa sạch thanh gạch chân xanh đậm & đường kẻ xám dưới đáy */
+div[data-baseweb="tab-highlight"],
+div[data-baseweb="tab-border"] {
+    display: none !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+/* Ép nút tab bo tròn, có padding thoáng và chia đều 50/50 */
+button[data-baseweb="tab"] {
+    flex: 1 1 0% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important;
+    min-height: 38px !important;
+    padding: 8px 14px !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    background: transparent !important;
+    color: #475569 !important;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+button[data-baseweb="tab"] p {
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+}
+
+button[data-baseweb="tab"]:hover {
+    background: rgba(255, 255, 255, 0.65) !important;
+    color: #047857 !important;
+}
+
+/* Trạng thái đang chọn: viên thuốc bo tròn nổi khối */
+button[data-baseweb="tab"][aria-selected="true"] {
+    background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.28) !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] p {
+    color: #ffffff !important;
+}
+
+/* =========================================================
+   CỐ ĐÔ AI — VISUAL MAX / LITE PERFORMANCE OVERRIDE
+   Không dùng JS, canvas, video background hay animation liên tục.
+   ========================================================= */
+
+:root {
+    --primary: #059669;
+    --primary-dark: #065f46;
+    --accent-gold: #c58b2a;
+    --bg-base: #f5f8f6;
+    --glass-bg: rgba(255, 255, 255, .94);
+    --glass-border: rgba(5, 150, 105, .17);
+    --text-main: #102a23;
+    --text-muted: #52665f;
+    --shadow-soft: 0 5px 18px rgba(16, 42, 35, .055);
+    --shadow-hover: 0 9px 24px rgba(5, 150, 105, .12);
+}
+
+html, body, [class*="css"] {
+    font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif !important;
+    color: var(--text-main);
+    text-rendering: optimizeLegibility;
+}
+
+.stApp {
+    background-color: #f5f8f6 !important;
+    background-image:
+        radial-gradient(ellipse at 4% 0%, rgba(16, 185, 129, .10), transparent 34%),
+        radial-gradient(ellipse at 100% 8%, rgba(217, 164, 65, .09), transparent 30%),
+        linear-gradient(180deg, #f8fbf9 0%, #f1f6f3 100%) !important;
+    background-attachment: scroll !important;
+}
+
+/* Bề mặt giao diện: bỏ blur nặng, giữ cảm giác kính bằng màu và viền */
+section[data-testid="stSidebar"] {
+    background: rgba(255, 255, 255, .97) !important;
+    border-right: 1px solid rgba(5, 150, 105, .14) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.codo-brand-card {
+    background: linear-gradient(125deg, #063f32 0%, #087653 58%, #0b8875 100%) !important;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 18px !important;
+    box-shadow: 0 8px 22px rgba(6, 78, 59, .16) !important;
+}
+
+.codo-brand-card::after {
+    opacity: .65;
+}
+
+.codo-hero {
+    background: linear-gradient(120deg, rgba(255,255,255,.98), rgba(241,250,245,.96)) !important;
+    border: 1px solid rgba(5,150,105,.17) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 7px 22px rgba(16,42,35,.06) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.codo-hero h1 {
+    background: linear-gradient(95deg, #064e3b 0%, #059669 58%, #b7791f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.codo-badge, .welcome-pill {
+    border-color: rgba(255,255,255,.25);
+}
+
+.welcome-hero {
+    background: linear-gradient(118deg, #063f32 0%, #087653 58%, #0e8878 100%) !important;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 24px !important;
+    box-shadow: 0 12px 30px rgba(6,78,59,.16) !important;
+}
+
+.welcome-hero::after {
+    opacity: .55;
+}
+
+.feature-card {
+    background: rgba(255,255,255,.96) !important;
+    border: 1px solid rgba(5,150,105,.14) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 5px 16px rgba(16,42,35,.045) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transition: border-color .16s ease, box-shadow .16s ease !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(5,150,105,.42) !important;
+    box-shadow: 0 9px 22px rgba(5,150,105,.10) !important;
+}
+
+.feature-icon {
+    background: linear-gradient(135deg, #e0f6eb, #fff4d9) !important;
+    color: #087653 !important;
+    border: 1px solid rgba(5,150,105,.10);
+}
+
+.stats-strip {
+    background: rgba(255,255,255,.94) !important;
+    border: 1px solid rgba(5,150,105,.14) !important;
+    box-shadow: 0 5px 16px rgba(16,42,35,.04);
+    backdrop-filter: none !important;
+}
+
+.stat-item strong {
+    color: #087653 !important;
+}
+
+[data-testid="stMetric"],
+[data-testid="stForm"],
+[data-testid="stExpander"],
+[data-testid="stChatMessage"] {
+    background: rgba(255,255,255,.96) !important;
+    border: 1px solid rgba(5,150,105,.13) !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 14px rgba(16,42,35,.045) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+[data-testid="stChatMessage"] {
+    animation: none !important;
+}
+
+.stButton > button,
+.stFormSubmitButton > button {
+    border-radius: 12px !important;
+    border: 1px solid rgba(5,150,105,.20) !important;
+    font-weight: 650 !important;
+    transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease !important;
+    box-shadow: 0 2px 7px rgba(16,42,35,.035) !important;
+}
+
+.stButton > button:hover,
+.stFormSubmitButton > button:hover {
+    transform: none !important;
+    border-color: #059669 !important;
+    box-shadow: 0 5px 14px rgba(5,150,105,.10) !important;
+}
+
+.stButton > button[kind="primary"],
+.stFormSubmitButton > button[kind="primary"] {
+    background: linear-gradient(110deg, #059669, #087653) !important;
+    box-shadow: 0 4px 12px rgba(5,150,105,.18) !important;
+}
+
+.stButton > button[kind="primary"]:hover,
+.stFormSubmitButton > button[kind="primary"]:hover {
+    transform: none !important;
+    box-shadow: 0 6px 16px rgba(5,150,105,.22) !important;
+}
+
+[data-testid="stDataFrame"] {
+    border: 1px solid rgba(5,150,105,.14) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 14px rgba(16,42,35,.04) !important;
+    overflow: hidden;
+}
+
+section[data-testid="stSidebar"] [data-testid="stForm"] {
+    background: #fff !important;
+    box-shadow: 0 5px 16px rgba(16,42,35,.045) !important;
+}
+
+.stProgress > div > div > div > div {
+    background: linear-gradient(90deg, #059669, #d2a34c) !important;
+}
+
+/* Giữ hiệu ứng ngắn, tắt chuyển động khi người dùng yêu cầu giảm motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* Màn hình nhỏ: giảm padding, tránh tràn ngang */
+@media (max-width: 768px) {
+    .codo-hero {
+        padding: 17px !important;
+        align-items: flex-start !important;
+        flex-direction: column !important;
+    }
+    .welcome-hero {
+        padding: 23px 20px !important;
+    }
+    .welcome-hero h2 {
+        font-size: 1.45rem !important;
+    }
+    .feature-grid {
+        gap: 11px !important;
+    }
+    .feature-card {
+        padding: 17px !important;
+    }
+    .stats-strip {
+        gap: 9px !important;
+        padding: 12px !important;
+    }
+}
+
+/* Ưu tiên màu sắc rõ ràng trong chế độ tương phản cao */
+@media (forced-colors: active) {
+    .codo-hero, .feature-card, .stats-strip, .welcome-hero {
+        border: 1px solid CanvasText !important;
+    }
+}
+
+/* =========================================================
+   FONT AWESOME ICON SYSTEM — GUIDE / NAVIGATION
+   ========================================================= */
+
+/* Tab icons are real Font Awesome glyphs, not emoji characters. */
+.stTabs [data-baseweb="tab"]:nth-child(1)::before {
+    content: "\f5a0";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 8px;
+    color: #07845f;
+}
+.stTabs [data-baseweb="tab"]:nth-child(2)::before {
+    content: "\f206";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 8px;
+    color: #07845f;
+}
+.stTabs [data-baseweb="tab"]:nth-child(3)::before {
+    content: "\f521";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 8px;
+    color: #b7791f;
+}
+.stTabs [data-baseweb="tab"]:nth-child(4)::before {
+    content: "\f06b";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 8px;
+    color: #07845f;
+}
+
+.quick-action-icon,
+.control-icon {
+    min-height: 42px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #07845f;
+    font-size: 1rem;
+}
+.quick-action-icon {
+    min-height: 42px;
+    font-size: 1.05rem;
+}
+.control-icon {
+    min-height: 38px;
+    color: #71877d;
+}
+.audio-input-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 8px 0 7px;
+    color: #52665f;
+    font-size: .92rem;
+    font-weight: 600;
+}
+.audio-input-label i {
+    color: #07845f;
+    font-size: 1rem;
+}
+.quick-action-icon i,
+.control-icon i,
+.audio-input-label i {
+    font-family: "Font Awesome 6 Free";
+}
+@media (max-width: 768px) {
+    .quick-action-icon { font-size: .9rem; }
+    .stTabs [data-baseweb="tab"]::before { margin-right: 5px; }
+}
+
+
+/* Shared Font Awesome headings across every feature tab */
+.section-icon-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: .55rem 0 .7rem;
+    color: #102a23;
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+.section-icon-heading i {
+    flex: 0 0 22px;
+    width: 22px;
+    text-align: center;
+    color: #07845f;
+    font-size: 1.02rem;
+}
+.section-icon-heading.compact {
+    margin: .35rem 0 .45rem;
+    font-size: .96rem;
+}
+.audio-input-label.compact {
+    margin: 0 0 4px;
+    font-size: .84rem;
+}
